@@ -12,34 +12,40 @@
             display: block;
         }
     }
+    .tvms-sharing-button__link{
+        text-decoration:none;
+        color:#fff;
+        margin-right:.5em;
+        display:inline-flex;
+
+        .tvms-sharing-button{
+            font-size:0.85rem;
+            display:flex;
+            align-items:center;
+            border-radius:5px;
+            transition:25ms ease-out;
+            padding:.5em .75em;
+            background-color: cornflowerblue;
+            color: #fff;
+            @media only screen and (max-width: 601px){
+                font-size: 0.8rem;
+            }
+            .tvms-sharing-button__icon{
+                display:inline-flex
+                svg{margin-right:.4em;}
+            }
+            .tvms-sharing-button--small svg{margin:0;vertical-align:middle}
+            .tvms-sharing-button--email{background-color:#777}
+            .tvms-sharing-button--email:hover{background-color:#5e5e5e}
+            .tvms-sharing-button--facebook{background-color:#3b5998;border-color:#3b5998}
+            .tvms-sharing-button--facebook:hover,.tvms-sharing-button--facebook:active{background-color:#2d4373;border-color:#2d4373}
+            .tvms-sharing-button--twitter{background-color:#55acee;border-color:#55acee}
+            .tvms-sharing-button--twitter:hover,.tvms-sharing-button--twitter:active{background-color:#2795e9;border-color:#2795e9}
+            .tvms-sharing-button--email{background-color:#777;border-color:#777}
+            .tvms-sharing-button--email:hover,.tvms-sharing-button--email:active{background-color:#5e5e5e;border-color:#5e5e5e}
+        }
+    }
 }
 
-.tvms-sharing-button__link,.tvms-sharing-button__icon{display:inline-flex}
-.tvms-sharing-button__link{
-	text-decoration:none;
-	color:#fff;
-	margin-right:.5em
-}
-.tvms-sharing-button{
-    font-size:0.85rem;
-    display:flex;
-    align-items:center;
-    border-radius:5px;
-    transition:25ms ease-out;
-    padding:.5em .75em;
-    background-color: cornflowerblue;
-    color: #fff;
-    @media only screen and (max-width: 601px){
-        font-size: 0.8rem;
-    }  
-}
-.tvms-sharing-button__icon svg{margin-right:.4em;}
-.tvms-sharing-button--small svg{margin:0;vertical-align:middle}
-.tvms-sharing-button--email{background-color:#777}
-.tvms-sharing-button--email:hover{background-color:#5e5e5e}
-.tvms-sharing-button--facebook{background-color:#3b5998;border-color:#3b5998}
-.tvms-sharing-button--facebook:hover,.tvms-sharing-button--facebook:active{background-color:#2d4373;border-color:#2d4373}
-.tvms-sharing-button--twitter{background-color:#55acee;border-color:#55acee}
-.tvms-sharing-button--twitter:hover,.tvms-sharing-button--twitter:active{background-color:#2795e9;border-color:#2795e9}
-.tvms-sharing-button--email{background-color:#777;border-color:#777}
-.tvms-sharing-button--email:hover,.tvms-sharing-button--email:active{background-color:#5e5e5e;border-color:#5e5e5e}
+
+
