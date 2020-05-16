@@ -1,0 +1,66 @@
+<script type="text/discourse-plugin" version="0.8">
+    const { h } = require('virtual-dom');
+    const { iconNode } = require("discourse-common/lib/icon-library");
+    var post_url = document.location.href;
+    var post_title = document.title;
+    
+    function mobileShare() {
+        if (typeof navigator.share != "undefined") {
+            navigator.share({
+                title: post_title,
+                text: post_title,
+                url: post_url
+            }).then(() => console.log('Successful share')).catch(error => console.log('Error sharing:', error));
+        }
+    }
+    
+    if ($('html').hasClass('mobile-device')) {
+        $('body').on('click', '.tvms-post-share>a.tvms-sharing--mobile', function () {mobileShare()})
+    }
+    
+    api.onPageChange((url, title) => {
+        post_url = "https://thuvienmuasam.com"+url;
+        post_title = title;
+    });
+    
+    api.createWidget('tvms-post-share', {
+        tagName: 'div.tvms-post-share',
+        html(){
+            return [
+                h('a.tvms-sharing-button__link.tvms-sharing--mobile', {href: '#',target: '_self'},
+                    h('div.tvms-sharing-button',[
+                        h('div.tvms-sharing-button__icon',iconNode('share')),
+                        h('span','Chia sẻ')
+                    ])
+                ),
+                h('a.tvms-sharing-button__link', { href: 'https://facebook.com/sharer/sharer.php?u='+post_url,target: '_blank'},
+                    h('div.tvms-sharing-button.tvms-sharing-button--facebook',[
+                        h('div.tvms-sharing-button__icon',iconNode('facebook-official')),
+                        h('span','Chia sẻ qua Facebook')
+                    ])
+                ),
+                h('a.tvms-sharing-button__link', { href: 'https://twitter.com/intent/tweet/?text='+post_title+'&url='+post_url,target: '_blank'},
+                    h('div.tvms-sharing-button.tvms-sharing-button--twitter',[
+                        h('div.tvms-sharing-button__icon',iconNode('twitter')),
+                        h('span','Chia sẻ qua Twitter')
+                    ])
+                ),
+                h('a.tvms-sharing-button__link', { href: 'mailto:abc@domain.com?subject='+post_title+'&body=',target: '_self'},
+                    h('div.tvms-sharing-button.tvms-sharing-button--email',[
+                        h('div.tvms-sharing-button__icon',iconNode('mail-reply')),
+                        h('span','Chia sẻ qua E-Mail')
+                    ])
+                )
+            ]
+        }
+    });
+    api.decorateWidget('tvms-post-share:after', helper => {
+        helper.widget.appEvents.on('page:changed', () => {
+            helper.widget.scheduleRerender();
+        });
+    });
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/topic-above-posts/tvms-post-share">
+    {{mount-widget widget="tvms-post-share"}}
+</script>
