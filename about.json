@@ -1,7 +1,17 @@
 {
-  "name": "Post Share",
-  "about_url": null,
-  "license_url": null,
+  "name": "Topic Share",
   "component": true,
-  "authors": "Don Anh"
+  "license_url": null,
+  "about_url": "",
+  "authors": "Don Anh",
+  "theme_version": "0.0.1",
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {
+  },
+  "color_schemes": {
+  },
+  "modifiers": {
+  },
+  "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
 }
