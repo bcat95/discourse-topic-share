@@ -21,6 +21,7 @@
     api.onPageChange((url, title) => {
         topic_url = window.location.origin+"/"+url;
         topic_title = title;
+
     });
     
     api.createWidget('tvms-topic-share', {
@@ -30,25 +31,25 @@
                 h('a.tvms-sharing-button__link.tvms-sharing--mobile', {href: '#',target: '_self'},
                     h('div.tvms-sharing-button',[
                         h('div.tvms-sharing-button__icon',iconNode('share')),
-                        h('span','Chia sẻ')
+                        h('span', I18n.t("share"))
                     ])
                 ),
                 h('a.tvms-sharing-button__link', { href: 'https://facebook.com/sharer/sharer.php?u='+topic_url,target: '_blank'},
                     h('div.tvms-sharing-button.tvms-sharing-button--facebook',[
                         h('div.tvms-sharing-button__icon',iconNode('facebook-official')),
-                        h('span','Chia sẻ qua Facebook')
+                        h("span", I18n.t("share.facebook"))
                     ])
                 ),
                 h('a.tvms-sharing-button__link', { href: 'https://twitter.com/intent/tweet/?text='+topic_title+'&url='+topic_url,target: '_blank'},
                     h('div.tvms-sharing-button.tvms-sharing-button--twitter',[
                         h('div.tvms-sharing-button__icon',iconNode('twitter')),
-                        h('span','Chia sẻ qua Twitter')
+                        h("span", I18n.t("share.twitter"))
                     ])
                 ),
                 h('a.tvms-sharing-button__link', { href: 'mailto:abc@domain.com?subject='+topic_title+'&body=',target: '_self'},
                     h('div.tvms-sharing-button.tvms-sharing-button--email',[
                         h('div.tvms-sharing-button__icon',iconNode('mail-reply')),
-                        h('span','Chia sẻ qua E-Mail')
+                        h("span", I18n.t("share.email"))
                     ])
                 )
             ]
