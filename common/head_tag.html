@@ -36,19 +36,19 @@
                 ),
                 h('a.tvms-sharing-button__link', { href: 'https://facebook.com/sharer/sharer.php?u='+topic_url,target: '_blank'},
                     h('div.tvms-sharing-button.tvms-sharing-button--facebook',[
-                        h('div.tvms-sharing-button__icon',iconNode('facebook-official')),
+                        h('div.tvms-sharing-button__icon',iconNode('fab-facebook')),
                         h("span", I18n.t("share.facebook"))
                     ])
                 ),
                 h('a.tvms-sharing-button__link', { href: 'https://twitter.com/intent/tweet/?text='+topic_title+'&url='+topic_url,target: '_blank'},
                     h('div.tvms-sharing-button.tvms-sharing-button--twitter',[
-                        h('div.tvms-sharing-button__icon',iconNode('twitter')),
+                        h('div.tvms-sharing-button__icon',iconNode('fab-twitter')),
                         h("span", I18n.t("share.twitter"))
                     ])
                 ),
                 h('a.tvms-sharing-button__link', { href: 'mailto:abc@domain.com?subject='+topic_title+'&body=',target: '_self'},
                     h('div.tvms-sharing-button.tvms-sharing-button--email',[
-                        h('div.tvms-sharing-button__icon',iconNode('mail-reply')),
+                        h('div.tvms-sharing-button__icon',iconNode('envelope')),
                         h("span", I18n.t("share.email"))
                     ])
                 )
